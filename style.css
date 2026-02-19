@@ -1,0 +1,92 @@
+/* General Page Styling */
+body {
+    background-color: #fffafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: #444;
+    overflow: hidden; /* Keeps floating hearts from causing scrollbars */
+}
+
+/* The Letter Container */
+.envelope {
+    background: white;
+    padding: 50px;
+    max-width: 450px;
+    width: 85%;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(214, 51, 132, 0.1);
+    text-align: center;
+    line-height: 1.8;
+    border: 1px solid #fce4e4;
+    z-index: 10; /* Keeps letter above floating hearts */
+}
+
+/* Beating Heart Animation */
+.heart {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    cursor: pointer;
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+    60% { transform: scale(1); }
+}
+
+h1 {
+    font-weight: normal;
+    color: #d63384;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+/* Button Styling */
+#musicBtn {
+    background-color: #d63384;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Georgia', serif;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+#musicBtn:hover {
+    background-color: #b02a6a;
+}
+
+.signature {
+    margin-top: 40px;
+    font-size: 1.2rem;
+    color: #d63384;
+}
+
+/* Floating Hearts Animation */
+.floating-heart {
+    position: fixed;
+    bottom: -10vh;
+    font-size: 1.5rem;
+    color: #d63384;
+    opacity: 0.6;
+    user-select: none;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
