@@ -3,26 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For You</title>
+    <title>A Letter For You</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <audio id="loveSong" loop>
+        <source src="https://www.mboxdrive.com/Just%20Like%20Heaven.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="envelope">
-        <div class="heart">❤️</div>
-        <h1>To My Favorite Person</h1>
+        <div class="heart" onclick="toggleMusic()">❤️</div>
+        <h1>Thinking of You</h1>
         
-        <p>I wanted to build something just for us. A little corner of the internet that belongs to you.</p>
-        
-        <p>Thank you for every laugh, every long talk, and for just being you. You make everything better, even the days when I'm just getting a quick trim at Bobby's and thinking about what we're doing later.</p>
-        
-        <p>I’m so lucky to have you in my life.</p>
+        <div class="letter-content">
+            <p>I wanted to create a space that’s just for us—something permanent.</p>
+            
+            <p>Every moment we spend together is my favorite. Whether we’re out on a big adventure or at home watching jjk, you’re always the person I want to tell everything to first.</p>
+            
+            <p>Thank you for being my partner, my best friend, and my home. I love you more than words on a screen could ever show, but I wanted to try anyway.</p>
+        </div>
+
+        <button id="musicBtn" onclick="toggleMusic()">🎵 Play "Just Like Heaven"</button>
         
         <div class="signature">
-            With all my love,<br>
-            <strong>[Your Name]</strong>
+            Yours always,<br>
+            <strong>bb</strong>
         </div>
     </div>
+
+    <script>
+        function toggleMusic() {
+            var song = document.getElementById("loveSong");
+            var btn = document.getElementById("musicBtn");
+            if (song.paused) {
+                song.play();
+                btn.innerHTML = "⏸ Pause Music";
+                createHearts(); // Starts the floating hearts
+            } else {
+                song.pause();
+                btn.innerHTML = "🎵 Play \"Just Like Heaven\"";
+            }
+        }
+
+        // Function to create floating hearts
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("floating-heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(heart);
+                
+                setTimeout(() => { heart.remove(); }, 5000);
+            }, 500);
+        }
+    </script>
 
 </body>
 </html>
